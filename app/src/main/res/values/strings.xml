@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Jumble</string>
+    <string name="tagline">Cryptographic Tool</string>
+    <string name="app_name_with_tagline">Jumble - Cryptographic Tool</string>
+</resources>
