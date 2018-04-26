@@ -1,6 +1,7 @@
 package com.anirudhmergu.jumble;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
@@ -34,12 +35,15 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
         return viewHolder;
     }
 
-    public void clickedButton(View v, int position) {
-        /*
+    private void clickedButton(View v, int position) {
+
         if(position == 0)
         {
+            Intent intent = new Intent(mContext, CiphersActivity.class);
+            mContext.startActivity(intent);
 
         }
+        /*
         else if(position == 1)
         {
 
@@ -52,15 +56,16 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
         {
 
         }
-        else
         */
-        Snackbar.make(v, "Clicked " + position, Snackbar.LENGTH_LONG)
+        else
+
+            Snackbar.make(v, "Not yet implemented", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final int pos = position;
         ImageView image = holder.image;
         TextView category = holder.category;
         TextView description = holder.description;
@@ -72,21 +77,21 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickedButton(v, position);
+                clickedButton(v, pos);
             }
         });
 
         holder.category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickedButton(v, position);
+                clickedButton(v, pos);
             }
         });
 
         holder.description.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickedButton(v, position);
+                clickedButton(v, pos);
             }
         });
     }
@@ -103,7 +108,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
         TextView description;
         CardView mainCard;
 
-        public ViewHolder(View itemView) {
+        private ViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.main_category_image);
             category = itemView.findViewById(R.id.main_category_title);
